@@ -1,0 +1,95 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
+| Date         : Mon Apr 12 23:11:38 2021
+| Host         : dolphin-ubuntu running 64-bit Ubuntu 18.04.5 LTS
+| Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
+| Design       : top
+| Device       : xc7a35ti
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    17 |
+|    Minimum number of control sets                        |    17 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    25 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    17 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     3 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     9 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              92 |           34 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |             287 |           66 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              12 |            3 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+------------------------------------------+-----------------------------------+------------------+----------------+
+|  Clock Signal  |               Enable Signal              |          Set/Reset Signal         | Slice Load Count | Bel Load Count |
++----------------+------------------------------------------+-----------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG | tx1/tx_i_1_n_0                           |                                   |                1 |              1 |
+|  clk_IBUF_BUFG | tx1/current_bit[3]_i_2__0_n_0            | tx1/current_bit[3]_i_1_n_0        |                1 |              4 |
+|  clk_IBUF_BUFG | rx1/received_bytes                       | u32_rec/received_bytes[3]_i_1_n_0 |                1 |              4 |
+|  clk_IBUF_BUFG | rx1/current_bit                          | rx1/current_bit[3]_i_1_n_0        |                1 |              4 |
+|  clk_IBUF_BUFG | rx1/data_reg[2]_0[0]                     |                                   |                2 |              6 |
+|  clk_IBUF_BUFG | tx1/current_bit[3]_i_2__0_n_0            |                                   |                1 |              8 |
+|  clk_IBUF_BUFG | rx1/data_reg[3]_0[0]                     |                                   |                2 |              8 |
+|  clk_IBUF_BUFG | rx1/data[7]_i_1_n_0                      |                                   |                1 |              8 |
+|  clk_IBUF_BUFG | power_pulse/counter                      |                                   |                8 |             32 |
+|  clk_IBUF_BUFG | rx1/E[0]                                 |                                   |                5 |             32 |
+|  clk_IBUF_BUFG | glitch_delay/counter_0                   |                                   |                8 |             32 |
+|  clk_IBUF_BUFG | glitch_trigger/glitch_trigger_state[1]   |                                   |                8 |             32 |
+|  clk_IBUF_BUFG | glitch_delay/counter                     |                                   |                8 |             32 |
+|  clk_IBUF_BUFG | u32_rec/FSM_sequential_state_reg[2]_0[0] |                                   |                5 |             32 |
+|  clk_IBUF_BUFG | u32_rec/FSM_sequential_state_reg[2][0]   |                                   |                6 |             32 |
+|  clk_IBUF_BUFG | u32_rec/E[0]                             |                                   |               11 |             32 |
+|  clk_IBUF_BUFG |                                          |                                   |               34 |             92 |
++----------------+------------------------------------------+-----------------------------------+------------------+----------------+
+
+

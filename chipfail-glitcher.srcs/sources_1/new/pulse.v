@@ -38,13 +38,15 @@ begin
                 begin
                     counter <= 32'd0;
                     state <= STATE_PULSE;
-                    pulse <= 1'd1;
+                    pulse <= 1'd0;
+                    //pulse <= 1'd0; //dolphin
                 end
             end
             STATE_PULSE:
             begin
                 counter <= counter + 1;
                 pulse <= 1'd1;
+                //pulse <= 1'd0; //dolphin
                 if(counter == length)
                 begin
                     done <= 1'd1;

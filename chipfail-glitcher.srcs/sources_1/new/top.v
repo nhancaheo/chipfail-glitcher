@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module top(
-    input sys_clk,
+    input clk,
     output [1:0] led,  // Led outputs
     output [2:0] rgb,  // RGB led
     input [1:0] btn, // buttons
@@ -9,25 +9,33 @@ module top(
     input uart_txd_in, // This is the RX input.. thanks for the naming digilent :D
     output uart_rxd_out, // This is the TX output
     
+    //output wire [13:0]  debug_header,
+    
     input trigger_in,
     output power_out,
+    output reset_out,
     output glitch_out
     );
 
 // Clock
-wire main_clk;
-// Generate a 100MHz clock from the external 12MHz clock
-clk_wiz_0 clock_generator
-(
-// Clock out ports
-.main_clk(main_clk),     // output main_clk
-// Clock in ports
-.clk_in1(sys_clk));      // input clk_in1
+wire clk;
 
+//assign debug_header = {
+//    5'd0,
+//    clk,  // IO8
+//    clk,       // IO7
+//    clk,        // IO6
+//    clk, // IO5
+//    clk,  // IO4
+//    clk,  // IO3
+//    clk,        // IO2
+//    clk,    // IO1
+//    clk     // IO0
+//};
 
 // deal with fucking meta stability
 reg uart_rxd_stable = 1'd0;
-always @(posedge main_clk)
+always @(posedge clk)
 begin
     uart_rxd_stable <= uart_txd_in;
 end
@@ -41,7 +49,7 @@ reg tx_enable = 1'd0;
 reg [7:0] tx_data = 8'd67;
 wire tx_ready;
 uart_tx tx1(
-    .clk(main_clk),
+    .clk(clk),
     .reset(reset),
     .data(tx_data),
     .enable(tx_enable),
@@ -53,7 +61,7 @@ uart_tx tx1(
 wire [7:0] rx_data;
 wire rx_valid;
 uart_rx rx1(
-    .clk(main_clk),
+    .clk(clk),
     .reset(reset),
     .data(rx_data),
     .rx(uart_rxd_stable),
@@ -106,7 +114,7 @@ reg u32_rec_enable = 1'd0;
 wire u32_rec_valid;
 wire [31:0] u32_rec_data;
 uint32_receiver u32_rec(
-    .clk(main_clk),
+    .clk(clk),
     .reset(reset),
     .uart_data(rx_data),
     .uart_valid(rx_valid),
@@ -133,7 +141,7 @@ wire power_pulse_done;
 // Used to output diagnostics via UART
 wire [1:0] power_pulse_state;
 pulse power_pulse(
-    .clk(main_clk),
+    .clk(clk),
     .reset(reset),
     .enable(power_pulse_enable),
     .length(power_pulse_length),
@@ -152,7 +160,7 @@ wire glitch_trigger_triggered;
 wire [1:0] glitch_trigger_state;
 
 trigger glitch_trigger(
-    .clk(main_clk),
+    .clk(clk),
     .reset(reset),
     .enable(glitch_trigger_enable_mixed),
     .in(trigger_in),
@@ -165,7 +173,7 @@ trigger glitch_trigger(
 wire glitch_delay_done;
 wire [1:0] glitch_delay_state;
 delay glitch_delay(
-    .clk(main_clk),
+    .clk(clk),
     .reset(reset),
     .enable(glitch_trigger_triggered),
     .length(glitch_delay_length),
@@ -180,7 +188,7 @@ wire glitch_pulse_pulse;
 wire glitch_pulse_done;
 wire [1:0] glitch_pulse_state;
 pulse glitch_pulse(
-    .clk(main_clk),
+    .clk(clk),
     .reset(reset),
     .enable(glitch_delay_done),
     .length(glitch_pulse_length),
@@ -192,10 +200,12 @@ pulse glitch_pulse(
 assign led[0] = power_pulse_pulse;
 assign led[1] = glitch_pulse_pulse;
 assign power_out = power_pulse_pulse;
+assign reset_out = power_out;
 // We also pull glitch high when power resetting to make sure we don't accidentally keep the core on 
-assign glitch_out = power_pulse_pulse || glitch_pulse_pulse;
+//assign glitch_out = power_pulse_pulse || glitch_pulse_pulse;
+assign glitch_out = glitch_pulse_pulse; //dolphin
 
-always @(posedge main_clk)
+always @(posedge clk)
 begin
     // default assignments
     u32_rec_enable <= 1'd0;

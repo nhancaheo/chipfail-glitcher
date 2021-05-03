@@ -1,0 +1,526 @@
+
+*** Running vivado
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+
+
+****** Vivado v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source top.tcl -notrace
+Command: synth_design -top top -part xc7a35ticsg324-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 6252 
+WARNING: [Synth 8-2611] redeclaration of ansi port clk is not allowed [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/top.v:21]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1671.371 ; gain = 155.684 ; free physical = 25502 ; free virtual = 32243
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/top.v:3]
+	Parameter CMD_POWER_CYCLE bound to: 8'b01000010 
+	Parameter CMD_SET_GLITCH_PULSE bound to: 8'b01000011 
+	Parameter CMD_SET_DELAY bound to: 8'b01000100 
+	Parameter CMD_SET_POWER_PULSE bound to: 8'b01000101 
+	Parameter CMD_GLITCH bound to: 8'b01000110 
+	Parameter CMD_READ_GPIO bound to: 8'b01000111 
+	Parameter CMD_ENABLE_GLITCH_POWER_CYCLE bound to: 8'b01001000 
+	Parameter CMD_GET_STATE bound to: 8'b01001001 
+	Parameter STATE_WAIT_COMMAND bound to: 8'b00000000 
+	Parameter STATE_SET_GLITCH_PULSE bound to: 8'b00000010 
+	Parameter STATE_SET_DELAY bound to: 8'b00000011 
+	Parameter STATE_SET_POWER_PULSE bound to: 8'b00000100 
+	Parameter STATE_ENABLE_GLITCH_POWER_CYCLE bound to: 8'b00000101 
+	Parameter STATE_WAIT_POWER_CYCLE bound to: 8'b00000110 
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uart_tx.v:4]
+	Parameter STATE_IDLE bound to: 4'b0000 
+	Parameter STATE_START_BIT bound to: 4'b0001 
+	Parameter STATE_DATA_BITS bound to: 4'b0010 
+	Parameter STATE_STOP_BIT bound to: 4'b0011 
+	Parameter STATE_DONE bound to: 4'b0101 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uart_tx.v:66]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (1#1) [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uart_tx.v:4]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uart_rx.v:5]
+	Parameter STATE_IDLE bound to: 4'b0000 
+	Parameter STATE_START_BIT bound to: 4'b0001 
+	Parameter STATE_DATA_BITS bound to: 4'b0010 
+	Parameter STATE_STOP_BIT bound to: 4'b0011 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uart_rx.v:59]
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (2#1) [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uart_rx.v:5]
+INFO: [Synth 8-6157] synthesizing module 'uint32_receiver' [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uint32_receiver.v:3]
+	Parameter STATE_IDLE bound to: 4'b0000 
+	Parameter STATE_RECEIVING bound to: 4'b0001 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uint32_receiver.v:39]
+INFO: [Synth 8-6155] done synthesizing module 'uint32_receiver' (3#1) [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/uint32_receiver.v:3]
+INFO: [Synth 8-6157] synthesizing module 'pulse' [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/pulse.v:4]
+	Parameter STATE_IDLE bound to: 2'b00 
+	Parameter STATE_PULSE bound to: 2'b01 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/pulse.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'pulse' (4#1) [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/pulse.v:4]
+INFO: [Synth 8-6157] synthesizing module 'trigger' [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/trigger.v:3]
+	Parameter STATE_IDLE bound to: 2'b00 
+	Parameter STATE_WAIT_LOW bound to: 2'b01 
+	Parameter STATE_TRIGGERING bound to: 2'b10 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/trigger.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'trigger' (5#1) [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/trigger.v:3]
+INFO: [Synth 8-6157] synthesizing module 'delay' [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/delay.v:4]
+	Parameter STATE_IDLE bound to: 2'b00 
+	Parameter STATE_DELAY bound to: 2'b01 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/delay.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'delay' (6#1) [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/delay.v:4]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/top.v:229]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/top.v:224]
+INFO: [Synth 8-6155] done synthesizing module 'top' (7#1) [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/sources_1/new/top.v:3]
+WARNING: [Synth 8-3331] design top has unconnected port btn[1]
+WARNING: [Synth 8-3331] design top has unconnected port btn[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1703.277 ; gain = 187.590 ; free physical = 25534 ; free virtual = 32276
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1720.121 ; gain = 204.434 ; free physical = 25530 ; free virtual = 32272
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1720.121 ; gain = 204.434 ; free physical = 25530 ; free virtual = 32272
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'gpio[8]'. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio[9]'. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio[10]'. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio[11]'. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio[12]'. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gpio[13]'. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.srcs/constrs_1/Arty-A7-35-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1900.777 ; gain = 0.000 ; free physical = 25422 ; free virtual = 32181
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1900.777 ; gain = 0.000 ; free physical = 25422 ; free virtual = 32181
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25490 ; free virtual = 32250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35ticsg324-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25490 ; free virtual = 32250
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25490 ; free virtual = 32250
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uint32_receiver'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'pulse'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'trigger'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'delay'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'top'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                               00 |                             0000
+         STATE_DATA_BITS |                               01 |                             0010
+          STATE_STOP_BIT |                               10 |                             0011
+              STATE_DONE |                               11 |                             0101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                               00 |                             0000
+         STATE_START_BIT |                               01 |                             0001
+         STATE_DATA_BITS |                               10 |                             0010
+          STATE_STOP_BIT |                               11 |                             0011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_rx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                                0 |                             0000
+         STATE_RECEIVING |                                1 |                             0001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uint32_receiver'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                                0 |                               00
+             STATE_PULSE |                                1 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'pulse'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                              001 |                               00
+          STATE_WAIT_LOW |                              010 |                               01
+        STATE_TRIGGERING |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'trigger'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+              STATE_IDLE |                                0 |                               00
+             STATE_DELAY |                                1 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'delay'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+      STATE_WAIT_COMMAND |                              000 |                         00000000
+  STATE_SET_GLITCH_PULSE |                              001 |                         00000010
+         STATE_SET_DELAY |                              010 |                         00000011
+   STATE_SET_POWER_PULSE |                              011 |                         00000100
+STATE_ENABLE_GLITCH_POWER_CYCLE |                              100 |                         00000101
+  STATE_WAIT_POWER_CYCLE |                              101 |                         00000110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'top'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25481 ; free virtual = 32241
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 5     
+	   2 Input      4 Bit       Adders := 3     
++---Registers : 
+	               32 Bit    Registers := 9     
+	                8 Bit    Registers := 4     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 17    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 6     
+	   4 Input     32 Bit        Muxes := 2     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	   7 Input      8 Bit        Muxes := 1     
+	   9 Input      8 Bit        Muxes := 2     
+	   4 Input      4 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 26    
+	   4 Input      1 Bit        Muxes := 10    
+	   3 Input      1 Bit        Muxes := 2     
+	   9 Input      1 Bit        Muxes := 6     
+	   6 Input      1 Bit        Muxes := 12    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module top 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                8 Bit    Registers := 2     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 3     
+	   7 Input      8 Bit        Muxes := 1     
+	   9 Input      8 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	   9 Input      1 Bit        Muxes := 6     
+	   6 Input      1 Bit        Muxes := 12    
+Module uart_tx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 6     
+Module uart_rx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   4 Input     32 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 4     
+Module uint32_receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+Module pulse 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+Module trigger 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      1 Bit        Muxes := 2     
+Module delay 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3331] design top has unconnected port btn[1]
+WARNING: [Synth 8-3331] design top has unconnected port btn[0]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25462 ; free virtual = 32227
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25346 ; free virtual = 32107
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25342 ; free virtual = 32103
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25340 ; free virtual = 32101
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25334 ; free virtual = 32095
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25334 ; free virtual = 32095
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25334 ; free virtual = 32095
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25334 ; free virtual = 32095
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25334 ; free virtual = 32095
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25334 ; free virtual = 32095
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    57|
+|3     |LUT1   |     2|
+|4     |LUT2   |   144|
+|5     |LUT3   |    27|
+|6     |LUT4   |    37|
+|7     |LUT5   |    52|
+|8     |LUT6   |    76|
+|9     |FDRE   |   388|
+|10    |IBUF   |    11|
+|11    |OBUF   |     9|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------------+----------------+------+
+|      |Instance         |Module          |Cells |
++------+-----------------+----------------+------+
+|1     |top              |                |   804|
+|2     |  glitch_delay   |delay           |    92|
+|3     |  glitch_pulse   |pulse           |    89|
+|4     |  glitch_trigger |trigger         |    88|
+|5     |  power_pulse    |pulse_0         |    94|
+|6     |  rx1            |uart_rx         |   138|
+|7     |  tx1            |uart_tx         |   115|
+|8     |  u32_rec        |uint32_receiver |    49|
++------+-----------------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25334 ; free virtual = 32095
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1900.777 ; gain = 204.434 ; free physical = 25384 ; free virtual = 32146
+Synthesis Optimization Complete : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1900.777 ; gain = 385.090 ; free physical = 25384 ; free virtual = 32146
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 57 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1900.777 ; gain = 0.000 ; free physical = 25335 ; free virtual = 32097
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+48 Infos, 11 Warnings, 6 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1900.777 ; gain = 504.438 ; free physical = 25430 ; free virtual = 32192
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1900.777 ; gain = 0.000 ; free physical = 25430 ; free virtual = 32192
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint '/home/dolphin/Desktop/chipfail-glitcher/chipfail-glitcher.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 12 23:11:17 2021...
